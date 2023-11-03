@@ -1,0 +1,121 @@
+/*using the '*' selects every HTML selector, so applies these styles to every HTML tag*/
+* {
+    font-family: 'Sacramento', cursive;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /*makes elements include padding and margin in their total width*/
+    user-select: none; /*stops user being able to select text*/
+}
+
+body {
+    min-height: 100%;
+    background: linear-gradient(45deg, powderblue, white, coral);
+    /*extra background properties that can be used:*/
+    /*background-repeat: no-repeat;*/ /*use to avoid repeating, if html min-height is not set*/
+    /*background-attachment: fixed;*/ /*use to keep background static, if html min-height is not set*/
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar {
+    background: rgba(255, 127, 80);
+    width: 100%;
+    position: sticky; /*use with 'top: 0px;' to stick something to the top of the browser*/
+    /*position: -webkit-sticky; */ /*may need to use for Safari*/
+    top: 0px;
+    z-index: 1; /*pushes this element to the front of the element order*/
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-around;
+}
+
+/*rather than giving every element a Class name, you can select the Class name of the parent, and then select all of the HTML elements that are children of that parent - in this case, we select all of the 'li' elements that are children of the '.navigation' Class (which is the 'ul' inside the 'nav' that has the Class name '.navbar')*/
+.navigation > li {
+    list-style-type: none;
+    font-size: clamp(1.5rem, 5vw, 3rem); /*'clamp()' makes the font size responsive to the width of the browser - the first expression is the minimum value; the second expression is the preferred value; the third expression is the maximum value*/
+    cursor: pointer;
+    text-decoration: underline transparent wavy;
+    transition-duration: 0.2s;
+}
+
+.navigation > li:hover {
+    text-decoration: underline powderblue wavy;
+}
+
+/*':active' is the pseudo-element for something that is currently clicked*/
+.navigation > li:active {
+    text-decoration: underline white wavy;
+}
+
+.sec1 {
+    background-color: rgba(176, 224, 230);
+    border: 3px solid coral;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+}
+
+.sec1 > h1 {
+    text-align: center;
+    font-size: clamp(1.7rem, 7vw, 3.2rem);
+    border: 3px solid coral;
+    border-radius: 10px;
+    padding: 3px;
+    margin: 5px;
+}
+
+.sec1 > p {
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    padding: 3px;
+    margin: 5px;
+}
+
+.sec1 > figure {
+    width: calc(100% - 200px); /*'calc()' allows us to perform a calculation - in this case, we make the width of the 'figure' 200px less than the full width of the parent element*/
+    background-color: white;
+    border-radius: 10px;
+    display: block; /*using 'display: block;' with 'margin:auto;' makes the element centralised*/
+    margin: auto;
+    border: 3px solid coral;
+    border-radius: 10px;
+}
+
+.sec1 > figure > img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.sec1 > figure > figcaption {
+    font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+    margin: 0 10px 10px 10px; /*no margin above the element, but 10px margin on the right, bottom and left*/
+}
+
+.sec2 {
+    background-color: coral;
+    border: 3px solid powderblue;
+}
+
+.sec2 > h1 {
+    border: 3px solid powderblue;
+}
+
+.sec2 > figure {
+    border: 3px solid powderblue;
+}
+
+.about {
+    background-image: url(rawpixel_bg.jpg); /*sets an image as the background*/
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment: fixed; /*stops image scrolling*/
+}
+
+.sec3 {
+    background-color: rgba(176, 224, 230, 0.5); /*in 'rgba()', the 'a' stands for alpha, which is the level of transparency, so in this case, the transparency is '0.5'*/
+    height: 2000px;
+}
